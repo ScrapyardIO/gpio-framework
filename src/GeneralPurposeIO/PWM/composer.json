@@ -1,0 +1,35 @@
+{
+    "name": "gpio/pwm",
+    "description": "The GeneralPurposeIO PWM package.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Angel Gonzalez",
+            "email": "angel@projectsaturnstudios.com"
+        }
+    ],
+    "homepage": "https://scrapyard-io.projectsaturnstudios.com",
+    "support": {
+        "issues": "https://github.com/ScrapyardIO/gpio-framework/issues",
+        "source": "https://github.com/ScrapyardIO/gpio-framework"
+    },
+    "require": {
+        "php": "^8.3",
+        "gpio/common": "0.6.0",
+        "gpio/contracts": "0.6.0"
+    },
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "GeneralPurposeIO\\PWM\\": ""
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.6.x-dev"
+        }
+    }
+}

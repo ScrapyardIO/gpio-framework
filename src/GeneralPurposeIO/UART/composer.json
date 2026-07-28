@@ -1,0 +1,39 @@
+{
+    "name": "gpio/uart",
+    "description": "The GeneralPurposeIO UART package.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Angel Gonzalez",
+            "email": "angel@projectsaturnstudios.com"
+        }
+    ],
+    "homepage": "https://scrapyard-io.projectsaturnstudios.com",
+    "support": {
+        "issues": "https://github.com/ScrapyardIO/gpio-framework/issues",
+        "source": "https://github.com/ScrapyardIO/gpio-framework"
+    },
+    "require": {
+        "php": "^8.3",
+        "gpio/common": "0.6.0",
+        "gpio/contracts": "0.6.0"
+    },
+    "suggest": {
+        "microscrap/uart": "^0.5.0 - POSIX UART",
+        "microscrap/ftdi": "^0.5.0 - FTDI USB Drivers"
+    },
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "GeneralPurposeIO\\UART\\": ""
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.6.x-dev"
+        }
+    }
+}

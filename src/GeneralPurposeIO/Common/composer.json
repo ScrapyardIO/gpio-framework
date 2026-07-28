@@ -1,0 +1,33 @@
+{
+    "name": "gpio/common",
+    "description": "The GeneralPurposeIO Common package.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Angel Gonzalez",
+            "email": "angel@projectsaturnstudios.com"
+        }
+    ],
+    "homepage": "https://scrapyard-io.projectsaturnstudios.com",
+    "support": {
+        "issues": "https://github.com/ScrapyardIO/framework/issues",
+        "source": "https://github.com/ScrapyardIO/framework"
+    },
+    "require": {
+        "php": "^8.3"
+    },
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "GeneralPurposeIO\\Contracts\\": ""
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.6.x-dev"
+        }
+    }
+}

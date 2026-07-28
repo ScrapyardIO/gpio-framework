@@ -1,0 +1,71 @@
+{
+    "name": "scrapyard-io/gpio-framework",
+    "description": "The ScrapyardIO GPIO Framework.",
+    "keywords": ["framework", "scrapyard-io"],
+    "license": "MIT",
+    "version": "0.6.0",
+    "homepage": "https://scrapyard-io.projectsaturnstudios.com",
+    "support": {
+        "issues": "https://github.com/scrapyard-io/gpio-framework/issues",
+        "source": "https://github.com/scrapyard-io/gpio-framework"
+    },
+    "authors": [
+        {
+            "name": "Angel Gonzalez",
+            "email": "angel@projectsaturnstudios.com"
+        }
+    ],
+    "require": {
+        "php": "^8.4|^8.5|^8.6",
+        "scrapyard-io/framework": "^0.6.0"
+    },
+    "replace": {
+        "gpio/common": "self.version",
+        "gpio/contracts": "self.version",
+        "gpio/digital": "self.version",
+        "gpio/i2c": "self.version",
+        "gpio/spi": "self.version",
+        "gpio/pwm": "self.version",
+        "gpio/uart": "self.version"
+    },
+    "require-dev": {
+        "pestphp/pest": "^4"
+    },
+    "suggest": {
+        "microscrap/gpio": "^0.5.0 - POSIX Digital IO",
+        "microscrap/i2c": "^0.5.0 - POSIX I2C",
+        "microscrap/spi": "^0.5.0 - POSIX SPI",
+        "microscrap/uart": "^0.5.0 - POSIX UART",
+        "microscrap/ftdi": "^0.5.0 - FTDI USB Drivers",
+        "microscrap/mpsse": "^0.5.0 - MPSSE USB Drivers"
+    },
+    "autoload": {
+        "files": [],
+        "psr-4": {
+            "GeneralPurposeIO\\": "src/GeneralPurposeIO/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "DeptOfScrapyardRobotics\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.6-dev"
+        },
+        "scrapyard-io": {
+            "providers": [
+                "GeneralPurposeIO\\Core\\GPIOServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
