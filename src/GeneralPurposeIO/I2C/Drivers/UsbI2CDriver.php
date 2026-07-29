@@ -90,15 +90,8 @@ class UsbI2CDriver extends I2CDriver
 
         MPSSE::start($this->context);
 
-        $addrByte = ($address << 1) | 1;
-        $addrOk = $this->writeByte($addrByte);
-
-        if (! $addrOk) {
+        if (! $this->writeByte(($address << 1) | 1)) {
             MPSSE::stop($this->context);
-
-            // #region agent log
-            file_put_contents('/Users/angelgonzalez/Development/PHP/PSS/ScrapyardIO/scrapyard-io/.cursor/debug-5016b5.log', json_encode(['sessionId' => '5016b5', 'runId' => 'post-fix', 'hypothesisId' => 'L', 'location' => 'UsbI2CDriver.php:read', 'message' => 'USB I2C read address NACK', 'data' => ['address' => sprintf('0x%02X', $address), 'len' => $len, 'addrByte' => sprintf('0x%02X', $addrByte)], 'timestamp' => (int) (microtime(true) * 1000)]).PHP_EOL, FILE_APPEND);
-            // #endregion
 
             return false;
         }
@@ -107,13 +100,7 @@ class UsbI2CDriver extends I2CDriver
 
         MPSSE::stop($this->context);
 
-        $result = is_null($data) ? false : bytes2array($data);
-
-        // #region agent log
-        file_put_contents('/Users/angelgonzalez/Development/PHP/PSS/ScrapyardIO/scrapyard-io/.cursor/debug-5016b5.log', json_encode(['sessionId' => '5016b5', 'runId' => 'post-fix', 'hypothesisId' => 'L', 'location' => 'UsbI2CDriver.php:read', 'message' => 'USB I2C read result', 'data' => ['address' => sprintf('0x%02X', $address), 'len' => $len, 'ok' => $result !== false, 'got' => $result === false ? null : count($result)], 'timestamp' => (int) (microtime(true) * 1000)]).PHP_EOL, FILE_APPEND);
-        // #endregion
-
-        return $result;
+        return is_null($data) ? false : bytes2array($data);
     }
 
     public function write(int $address, array|string $data): int
@@ -124,41 +111,12 @@ class UsbI2CDriver extends I2CDriver
 
         MPSSE::start($this->context);
 
-        $addrByte = ($address << 1) | 0;
-        $addrWriteRc = MPSSE::write($this->context, chr($this->getLowByte($addrByte)));
-        $addrAck = $addrWriteRc === 0 ? MPSSE::getAck($this->context) : null;
-        $addrOk = $addrWriteRc === 0 && $addrAck === 0;
-
-        $byteAcks = [];
-        $dataOk = $addrOk;
-        if ($addrOk) {
-            $len = strlen($data);
-            for ($i = 0; $i < $len; $i++) {
-                $byte = ord($data[$i]);
-                $rc = MPSSE::write($this->context, chr($this->getLowByte($byte)));
-                $ack = $rc === 0 ? MPSSE::getAck($this->context) : null;
-                $ok = $rc === 0 && $ack === 0;
-                $byteAcks[] = [
-                    'index' => $i,
-                    'byte' => sprintf('0x%02X', $byte),
-                    'writeRc' => $rc,
-                    'ack' => $ack,
-                    'ok' => $ok,
-                ];
-                if (! $ok) {
-                    $dataOk = false;
-                    break;
-                }
-            }
-        }
+        $acknowledged = $this->writeByte(($address << 1) | 0)
+            && $this->clockOut($data);
 
         MPSSE::stop($this->context);
 
-        // #region agent log
-        file_put_contents('/Users/angelgonzalez/Development/PHP/PSS/ScrapyardIO/scrapyard-io/.cursor/debug-5016b5.log', json_encode(['sessionId' => '5016b5', 'hypothesisId' => 'A,B,E', 'location' => 'UsbI2CDriver.php:write', 'message' => 'USB I2C write ACK breakdown', 'data' => ['address' => sprintf('0x%02X', $address), 'payloadHex' => bin2hex($data), 'payloadLen' => strlen($data), 'addrWriteRc' => $addrWriteRc, 'addrAck' => $addrAck, 'addrOk' => $addrOk, 'byteAcks' => $byteAcks, 'result' => $dataOk ? strlen($data) : -1], 'timestamp' => (int) (microtime(true) * 1000)]).PHP_EOL, FILE_APPEND);
-        // #endregion
-
-        return $dataOk ? strlen($data) : -1;
+        return $acknowledged ? strlen($data) : -1;
     }
 
     public function close(): void

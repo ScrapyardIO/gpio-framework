@@ -7,7 +7,7 @@ return [
             'default' => 'posix',
             'adapters' => [
                 'posix' => \GeneralPurposeIO\UART\Adapters\PosixUARTAdapter::class,
-                'usb' => \GeneralPurposeIO\UART\Adapters\FtdiUartAdapter::class,
+                'usb' => \GeneralPurposeIO\UART\Adapters\FtdiUARTAdapter::class,
             ]
         ],
         'i2c' => [

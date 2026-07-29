@@ -21,11 +21,15 @@ class UsbDigitalIODriver extends DigitalIODriver
      */
     public function write($pin, bool $state): bool
     {
-        $state
+        $written = $state
             ? mpsse_pin_high($this->context, $pin)
             : mpsse_pin_low($this->context, $pin);
 
-        return $this->read($pin);
+        if ($written !== 0) {
+            return false;
+        }
+
+        return $this->read($pin) === $state;
     }
 
     /**

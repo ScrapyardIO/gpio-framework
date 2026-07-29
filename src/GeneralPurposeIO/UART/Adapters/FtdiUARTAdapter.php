@@ -4,9 +4,20 @@ namespace GeneralPurposeIO\UART\Adapters;
 
 use GeneralPurposeIO\Contracts\Common\GPIOException;
 use GeneralPurposeIO\UART\UARTCommunicationAdapter;
+use GeneralPurposeIO\UART\Factory\FtdiUARTFactory;
+use Microscrap\Bindings\FTDI\Enums\FtdiProductId;
 
 class FtdiUARTAdapter extends UARTCommunicationAdapter
 {
+    public function device(FtdiProductId|int $device): FtdiUARTFactory
+    {
+        if (is_int($device)) {
+            $device = FtdiProductId::from($device);
+        }
+
+        return new FtdiUARTFactory($device);
+    }
+
     /**
      * @throws GPIOException
      */
