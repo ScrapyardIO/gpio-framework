@@ -2,18 +2,18 @@
 
 namespace GeneralPurposeIO\PWM;
 
-use Fabricate\Contracts\Chassis\CircularDependencyException;
+use Fabricate\Chassis\Exceptions\CircularDependencyException;
 use Fabricate\Contracts\Core\Program;
 use Fabricate\NutsAndBolts\ServiceProvider;
 use GeneralPurposeIO\Core\MagicAliases\GPIO;
-use Fabricate\Contracts\NutsAndBolts\DeferrableProvider;
+use Fabricate\NutsAndBolts\Contracts\DeferrableProvider;
 
 class PWMServiceProvider extends ServiceProvider implements DeferrableProvider
 {
     public function register(): void
     {
-        $this->program->singleton('gpio.pwm', fn(Program $program) => new PWMAdapterManager($program));
-        $this->program->alias('gpio.pwm', PWMAdapterManager::class);
+        $this->container->singleton('gpio.pwm', fn(Program $program) => new PWMAdapterManager($program));
+        $this->container->alias('gpio.pwm', PWMAdapterManager::class);
     }
 
     /**

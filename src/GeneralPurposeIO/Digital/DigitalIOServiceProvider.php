@@ -5,15 +5,15 @@ namespace GeneralPurposeIO\Digital;
 use Fabricate\Contracts\Core\Program;
 use Fabricate\NutsAndBolts\ServiceProvider;
 use GeneralPurposeIO\Core\MagicAliases\GPIO;
-use Fabricate\Contracts\NutsAndBolts\DeferrableProvider;
-use Fabricate\Contracts\Chassis\CircularDependencyException;
+use Fabricate\NutsAndBolts\Contracts\DeferrableProvider;
+use Fabricate\Chassis\Exceptions\CircularDependencyException;
 
 class DigitalIOServiceProvider extends ServiceProvider implements DeferrableProvider
 {
     public function register(): void
     {
-        $this->program->singleton('gpio.digital-io', fn(Program $program) => new DigitalIOAdapterManager($program));
-        $this->program->alias('gpio.digital-io', DigitalIOAdapterManager::class);
+        $this->container->singleton('gpio.digital-io', fn(Program $program) => new DigitalIOAdapterManager($program));
+        $this->container->alias('gpio.digital-io', DigitalIOAdapterManager::class);
     }
 
     /**

@@ -2,7 +2,7 @@
 
 namespace GeneralPurposeIO\PWM;
 
-use Fabricate\NutsAndBolts\MagicAliases\MagicAlias;
+use Fabricate\MagicAliases\MagicAlias;
 use GeneralPurposeIO\Contracts\PWM\PWMCommunicationAdapter as CommunicationAdapter;
 
 /**

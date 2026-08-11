@@ -2,7 +2,7 @@
 
 namespace GeneralPurposeIO\Contracts\Common;
 
-use Fabricate\NutsAndBolts\ScrapyardIOException;
+use Fabricate\Contracts\Core\ScrapyardIOException;
 
 class GPIOException extends ScrapyardIOException
 {

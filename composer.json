@@ -3,11 +3,12 @@
     "description": "The ScrapyardIO GPIO Framework.",
     "keywords": ["framework", "scrapyard-io"],
     "license": "MIT",
-    "version": "0.6.0",
-    "homepage": "https://scrapyard-io.projectsaturnstudios.com",
+    "version": "0.7.0",
+    "homepage": "https://scrapyard-io.projectsaturnstudios.com/ecosystem/scrapyard-io/gpio-framework/0.7.x/overview",
     "support": {
         "issues": "https://github.com/scrapyard-io/gpio-framework/issues",
-        "source": "https://github.com/scrapyard-io/gpio-framework"
+        "source": "https://github.com/scrapyard-io/gpio-framework",
+        "docs": "https://scrapyard-io.projectsaturnstudios.com/ecosystem/scrapyard-io/gpio-framework/0.7.x/overview"
     },
     "authors": [
         {
@@ -17,27 +18,29 @@
     ],
     "require": {
         "php": "^8.4|^8.5|^8.6",
-        "scrapyard-io/framework": "^0.6.0"
+        "scrapyard-io/framework": "^0.7.0"
     },
     "replace": {
         "gpio/common": "self.version",
         "gpio/contracts": "self.version",
+        "gpio/circuits": "self.version",
         "gpio/digital": "self.version",
         "gpio/i2c": "self.version",
         "gpio/spi": "self.version",
         "gpio/pwm": "self.version",
         "gpio/uart": "self.version"
     },
+
     "require-dev": {
         "pestphp/pest": "^4"
     },
     "suggest": {
-        "microscrap/gpio": "^0.5.0 - POSIX Digital IO",
-        "microscrap/i2c": "^0.5.0 - POSIX I2C",
-        "microscrap/spi": "^0.5.0 - POSIX SPI",
-        "microscrap/uart": "^0.5.0 - POSIX UART",
-        "microscrap/ftdi": "^0.5.0 - FTDI USB Drivers",
-        "microscrap/mpsse": "^0.5.0 - MPSSE USB Drivers"
+        "microscrap/gpio": "^0.7.0 - POSIX Digital IO",
+        "microscrap/i2c": "^0.7.0 - POSIX I2C",
+        "microscrap/spi": "^0.7.0 - POSIX SPI",
+        "microscrap/uart": "^0.7.0 - POSIX UART",
+        "microscrap/ftdi": "^0.7.0 - FTDI USB Drivers",
+        "microscrap/mpsse": "^0.7.0 - MPSSE USB Drivers"
     },
     "autoload": {
         "files": [],
@@ -52,12 +55,18 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "0.6-dev"
+            "dev-master": "0.7.x-dev",
+            "dev-main": "0.7.x-dev",
+            "dev-0.7.x": "0.7.x-dev"
         },
         "scrapyard-io": {
             "providers": [
                 "GeneralPurposeIO\\Core\\GPIOServiceProvider"
-            ]
+            ],
+            "aliases": {
+                "Circuit": "GeneralPurposeIO\\Core\\MagicAliases\\Circuit",
+                "GPIO": "GeneralPurposeIO\\Core\\MagicAliases\\GPIO"
+            }
         }
     },
     "config": {

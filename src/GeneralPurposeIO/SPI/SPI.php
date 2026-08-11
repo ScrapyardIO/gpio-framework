@@ -2,7 +2,7 @@
 
 namespace GeneralPurposeIO\SPI;
 
-use Fabricate\NutsAndBolts\MagicAliases\MagicAlias;
+use Fabricate\MagicAliases\MagicAlias;
 use GeneralPurposeIO\Contracts\SPI\SPICommunicationAdapter as CommunicationAdapter;
 
 /**

@@ -2,7 +2,7 @@
 
 namespace GeneralPurposeIO\Digital;
 
-use Fabricate\NutsAndBolts\MagicAliases\MagicAlias;
+use Fabricate\MagicAliases\MagicAlias;
 use GeneralPurposeIO\Contracts\Digital\DigitalIOCommunicationAdapter as CommunicationAdapter;
 
 /**

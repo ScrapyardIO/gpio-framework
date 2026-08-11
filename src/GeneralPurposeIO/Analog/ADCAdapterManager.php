@@ -5,7 +5,7 @@ namespace GeneralPurposeIO\Analog;
 use InvalidArgumentException;
 use Fabricate\NutsAndBolts\Manager;
 use GeneralPurposeIO\Contracts\Common\GPIOException;
-use Fabricate\Contracts\Chassis\CircularDependencyException;
+use Fabricate\Chassis\Exceptions\CircularDependencyException;
 use GeneralPurposeIO\Contracts\Analog\AnalogInputCommunicationAdapter as AdapterInterface;
 use GeneralPurposeIO\Contracts\Common\GPIOCommunicationAdapterManager as AdapterManager;
 

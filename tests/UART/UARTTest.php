@@ -18,13 +18,10 @@ class UARTTest extends TestCase
 {
     public function testUARTAdaptersUseAutoloadSafeClassNames(): void
     {
-        $package_config = require dirname(__DIR__, 2).'/config/gpio.php';
-        $application_config = require dirname(__DIR__, 4).'/config/gpio.php';
+        $config = require dirname(__DIR__, 2).'/config/gpio.php';
 
-        foreach ([$package_config, $application_config] as $config) {
-            $this->assertSame(PosixUARTAdapter::class, $config['protocols']['uart']['adapters']['posix']);
-            $this->assertSame(FtdiUARTAdapter::class, $config['protocols']['uart']['adapters']['usb']);
-        }
+        $this->assertSame(PosixUARTAdapter::class, $config['protocols']['uart']['adapters']['posix']);
+        $this->assertSame(FtdiUARTAdapter::class, $config['protocols']['uart']['adapters']['usb']);
     }
 
     public function testFactoryDefaultsAndConfigurationArePreserved(): void

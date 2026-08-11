@@ -2,7 +2,7 @@
 
 namespace GeneralPurposeIO\Core\MagicAliases;
 
-use Fabricate\NutsAndBolts\MagicAliases\MagicAlias;
+use Fabricate\MagicAliases\MagicAlias;
 use GeneralPurposeIO\Contracts\Common\GPIOCommunicationAdapterManager as AdapterManager;
 
 /**

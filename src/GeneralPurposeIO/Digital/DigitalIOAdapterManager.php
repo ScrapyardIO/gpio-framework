@@ -4,7 +4,7 @@ namespace GeneralPurposeIO\Digital;
 
 use InvalidArgumentException;
 use Fabricate\NutsAndBolts\Manager;
-use Fabricate\Contracts\Chassis\CircularDependencyException;
+use Fabricate\Chassis\Exceptions\CircularDependencyException;
 use GeneralPurposeIO\Contracts\Common\GPIOException;
 use GeneralPurposeIO\Contracts\Common\GPIOCommunicationAdapterManager as AdapterManager;
 use GeneralPurposeIO\Contracts\Digital\DigitalIOCommunicationAdapter as AdapterInterface;

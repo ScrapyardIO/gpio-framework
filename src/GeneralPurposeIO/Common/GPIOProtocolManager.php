@@ -2,11 +2,11 @@
 
 namespace GeneralPurposeIO\Common;
 
-use Fabricate\Contracts\Chassis\CircularDependencyException;
+use Fabricate\Chassis\Exceptions\CircularDependencyException;
 use RuntimeException;
 use ReflectionException;
 use Fabricate\Contracts\Core\Program;
-use Fabricate\NutsAndBolts\RebindsCallbacksToSelf;
+use Fabricate\NutsAndBolts\Concerns\RebindsCallbacksToSelf;
 use GeneralPurposeIO\Contracts\Common\GPIOException;
 use GeneralPurposeIO\Contracts\Core\GPIOProtocolFactory as FactoryContract;
 use GeneralPurposeIO\Contracts\Common\GPIOCommunicationAdapterManager as AdapterManager;

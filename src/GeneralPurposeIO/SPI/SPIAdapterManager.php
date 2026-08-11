@@ -3,7 +3,7 @@
 namespace GeneralPurposeIO\SPI;
 
 use Fabricate\NutsAndBolts\Manager;
-use Fabricate\Contracts\Chassis\CircularDependencyException;
+use Fabricate\Chassis\Exceptions\CircularDependencyException;
 use GeneralPurposeIO\Contracts\Common\GPIOException;
 use GeneralPurposeIO\Contracts\SPI\SPICommunicationAdapter as AdapterInterface;
 use GeneralPurposeIO\Contracts\Common\GPIOCommunicationAdapterManager as AdapterManager;

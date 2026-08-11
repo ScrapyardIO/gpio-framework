@@ -5,7 +5,7 @@ namespace GeneralPurposeIO\UART;
 use InvalidArgumentException;
 use Fabricate\NutsAndBolts\Manager;
 use GeneralPurposeIO\Contracts\Common\GPIOException;
-use Fabricate\Contracts\Chassis\CircularDependencyException;
+use Fabricate\Chassis\Exceptions\CircularDependencyException;
 use GeneralPurposeIO\Contracts\UART\UARTCommunicationAdapter as AdapterInterface;
 use GeneralPurposeIO\Contracts\Common\GPIOCommunicationAdapterManager as AdapterManager;
 

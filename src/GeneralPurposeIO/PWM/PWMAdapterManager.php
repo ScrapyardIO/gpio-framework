@@ -2,7 +2,7 @@
 
 namespace GeneralPurposeIO\PWM;
 
-use Fabricate\Contracts\Chassis\CircularDependencyException;
+use Fabricate\Chassis\Exceptions\CircularDependencyException;
 use Fabricate\NutsAndBolts\Manager;
 use GeneralPurposeIO\Contracts\Common\GPIOException;
 use GeneralPurposeIO\Contracts\PWM\PWMCommunicationAdapter as AdapterInterface;

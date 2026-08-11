@@ -2,7 +2,7 @@
 
 namespace GeneralPurposeIO\UART;
 
-use Fabricate\NutsAndBolts\MagicAliases\MagicAlias;
+use Fabricate\MagicAliases\MagicAlias;
 use GeneralPurposeIO\Contracts\UART\UARTCommunicationAdapter as CommunicationAdapter;
 
 /**

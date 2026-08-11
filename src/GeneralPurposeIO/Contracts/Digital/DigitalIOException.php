@@ -2,7 +2,7 @@
 
 namespace GeneralPurposeIO\Contracts\Digital;
 
-use Fabricate\NutsAndBolts\ScrapyardIOException;
+use Fabricate\Contracts\Core\ScrapyardIOException;
 use GeneralPurposeIO\Contracts\Common\GPIOException;
 
 class DigitalIOException extends GPIOException

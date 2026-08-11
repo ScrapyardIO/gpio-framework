@@ -7,18 +7,18 @@ use Fabricate\NutsAndBolts\ServiceProvider;
 use GeneralPurposeIO\Core\MagicAliases\GPIO;
 use GeneralPurposeIO\Digital\DigitalInAdapterManager;
 use GeneralPurposeIO\Digital\DigitalOutAdapterManager;
-use Fabricate\Contracts\NutsAndBolts\DeferrableProvider;
-use Fabricate\Contracts\Chassis\CircularDependencyException;
+use Fabricate\NutsAndBolts\Contracts\DeferrableProvider;
+use Fabricate\Chassis\Exceptions\CircularDependencyException;
 
 class AnalogIOServiceProvider extends ServiceProvider implements DeferrableProvider
 {
     public function register(): void
     {
-        //$this->program->singleton('gpio.analog-in', fn(Program $program) => new DigitalInAdapterManager($program));
-        //$this->program->alias('gpio.analog-in', DigitalInAdapterManager::class);
+        //$this->container->singleton('gpio.analog-in', fn(Program $program) => new DigitalInAdapterManager($program));
+        //$this->container->alias('gpio.analog-in', DigitalInAdapterManager::class);
 
-        //$this->program->singleton('gpio.analog-out', fn(Program $program) => new DigitalOutAdapterManager($program));
-        //$this->program->alias('gpio.analog-out', DigitalOutAdapterManager::class);
+        //$this->container->singleton('gpio.analog-out', fn(Program $program) => new DigitalOutAdapterManager($program));
+        //$this->container->alias('gpio.analog-out', DigitalOutAdapterManager::class);
     }
 
     /**

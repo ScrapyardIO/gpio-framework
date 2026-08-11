@@ -2,7 +2,7 @@
 
 namespace GeneralPurposeIO\Analog;
 
-use Fabricate\NutsAndBolts\MagicAliases\MagicAlias;
+use Fabricate\MagicAliases\MagicAlias;
 use GeneralPurposeIO\Contracts\Analog\AnalogInputCommunicationAdapter as CommunicationAdapter;
 
 /**
