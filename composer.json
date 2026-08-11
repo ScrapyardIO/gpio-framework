@@ -21,9 +21,10 @@
         "scrapyard-io/framework": "^0.7.0"
     },
     "replace": {
+        "gpio/analog": "self.version",
+        "gpio/circuits": "self.version",
         "gpio/common": "self.version",
         "gpio/contracts": "self.version",
-        "gpio/circuits": "self.version",
         "gpio/digital": "self.version",
         "gpio/i2c": "self.version",
         "gpio/spi": "self.version",
